@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		format = {"pretty", "json:target/"},
+		format = {"pretty", "html:target/report.html"},
 		features = {"src/cucumber/"}
 		)
 
