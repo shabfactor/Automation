@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		plugin = {"pretty", "html:target/report.html"},
 		features = {"src/ghost/features"}
-		)
+)
 
 public class CucumberRunner {
 
