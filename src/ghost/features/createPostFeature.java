@@ -8,7 +8,6 @@ import helper.driver.Driver;
 public class createPostFeature {
 	@Given("^valid user logged in$")
 	public void validUserLoggedIn() throws Throwable {
-		Driver.get().navigate().to("http://google.com");
 	    System.out.println("valid user logged in");
 	}
 
