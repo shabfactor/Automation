@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
 public class createPostFeature extends GhostPrimaryObjectFixture{	
 	@Given("^valid user logged in$")
 	public void validUserLoggedIn() throws Throwable {
-		userLogin();
+		userLogin();    //code define in the GPOF
 	}
 		
 	@When("^user click new post link on navigation menu$")
