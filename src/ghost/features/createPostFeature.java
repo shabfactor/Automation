@@ -1,15 +1,17 @@
 package ghost.features;
 
+
+import ghostobjects.GhostPrimaryObjectFixture;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class createPostFeature {
+public class createPostFeature extends GhostPrimaryObjectFixture{	
 	@Given("^valid user logged in$")
 	public void validUserLoggedIn() throws Throwable {
-	    System.out.println("valid user logged in");
+		userLogin();
 	}
-
+		
 	@When("^user click new post link on navigation menu$")
 	public void userClickNewPostLinkOnNavigationMenu() throws Throwable {
 		System.out.println("user click new post link on navigation menu");
