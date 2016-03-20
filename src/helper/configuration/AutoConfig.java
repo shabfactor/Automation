@@ -33,5 +33,10 @@ public class AutoConfig {
 	public String getDriverLocation() {
 		return config.getString("auto.driver.location." + getDriverType().name().toLowerCase());
 	}
-	
+	public String getUserName(){
+		return config.getString("auto.username");
+	}
+	public String getPassword(){
+		return config.getString("auto.password");
+	}
 }
