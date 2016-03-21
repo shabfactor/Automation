@@ -20,6 +20,7 @@ public class createPostFeature extends GhostPrimaryObjectFixture{
 
 	@When("^type title and content inside editor$")
 	public void typeTitleAndContentInsideEditor() throws Throwable {
+		//code define in the GPOF
 	    System.out.println("type title and content inside editor");
 	}
 
