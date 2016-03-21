@@ -1,14 +1,14 @@
-package helper.configuration;
+package nz.co.maveros.auto.ghost.configuration;
 
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
-import helper.driver.DriverType;
+import nz.co.maveros.auto.ghost.selenium.DriverType;
 
 public class AutoConfig {
 	
-	private static final String CONFIG_FILE = "env.properties";
+	private static final String CONFIG_FILE = "resources/env.properties";
 	
 	private static Configuration config;
 

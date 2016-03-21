@@ -1,10 +1,10 @@
-package model.page;
+package nz.co.maveros.auto.ghost.model.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import ghostobjects.GhostPrimaryObjectFixture;
+import nz.co.maveros.auto.ghost.fixture.GhostPrimaryObjectFixture;
 
 public class LoginPage extends AbstractPage {
 

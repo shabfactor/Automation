@@ -1,4 +1,4 @@
-package helper.driver;
+package nz.co.maveros.auto.ghost.selenium;
 
 public enum DriverType {
 	Firefox,

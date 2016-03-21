@@ -1,8 +1,8 @@
-package model.page;
+package nz.co.maveros.auto.ghost.model.page;
 
 import org.openqa.selenium.WebDriver;
 
-import helper.configuration.AutoConfig;
+import nz.co.maveros.auto.ghost.configuration.AutoConfig;
 
 public abstract class AbstractPage {
 	private String url;

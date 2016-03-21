@@ -1,7 +1,7 @@
-package ghostobjects;
+package nz.co.maveros.auto.ghost.fixture;
 
-import helper.configuration.AutoConfig;
-import helper.driver.Driver;
+import nz.co.maveros.auto.ghost.configuration.AutoConfig;
+import nz.co.maveros.auto.ghost.selenium.Driver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

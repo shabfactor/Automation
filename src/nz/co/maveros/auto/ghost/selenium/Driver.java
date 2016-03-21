@@ -1,4 +1,4 @@
-package helper.driver;
+package nz.co.maveros.auto.ghost.selenium;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import helper.configuration.AutoConfig;
+import nz.co.maveros.auto.ghost.configuration.AutoConfig;
 
 public class Driver {
 	
