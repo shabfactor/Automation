@@ -20,7 +20,7 @@ public class GhostPrimaryObjectFixture {
 	signin.click();
 
 }
-	public void checkPageIsReady() {
+	public static void checkPageIsReady() {
 		  
 		  JavascriptExecutor js = (JavascriptExecutor)Driver.get();
 		  
