@@ -14,6 +14,7 @@ public class createPostFeature extends GhostPrimaryObjectFixture{
 		
 	@When("^user click new post link on navigation menu$")
 	public void userClickNewPostLinkOnNavigationMenu() throws Throwable {
+		//code define in the GPOF
 		System.out.println("user click new post link on navigation menu");
 	}
 
