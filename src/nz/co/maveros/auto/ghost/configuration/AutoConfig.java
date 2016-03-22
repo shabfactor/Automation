@@ -2,7 +2,6 @@ package nz.co.maveros.auto.ghost.configuration;
 
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
 
 import nz.co.maveros.auto.ghost.selenium.DriverType;
 
@@ -16,7 +15,7 @@ public class AutoConfig {
 	
 	static {
 		try {
-			config = new PropertiesConfiguration(CONFIG_FILE);
+			config = new OverridePropertyConfiguration(CONFIG_FILE);
 		} catch (ConfigurationException e) {
 			e.printStackTrace();
 		}
