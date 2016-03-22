@@ -1,24 +1,20 @@
 package nz.co.maveros.auto.ghost.features;
 
-import org.openqa.selenium.WebDriver;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import nz.co.maveros.auto.ghost.fixture.GhostPrimaryObjectFixture;
-import nz.co.maveros.auto.ghost.model.page.LoginPage;
-import nz.co.maveros.auto.ghost.selenium.Driver;
+import nz.co.maveros.auto.ghost.service.LoginService;
+import nz.co.maveros.auto.ghost.service.LoginServiceImpl;
 
 public class CreatePostFeature extends GhostPrimaryObjectFixture {
-
-	private WebDriver driver = Driver.get();
+	
+	private LoginService loginService = new LoginServiceImpl();
 
 	@Given("^valid user logged in$")
 	public void validUserLoggedIn() throws Throwable {
-		LoginPage loginPage = new LoginPage(driver);
-		loginPage.inputEmail("ghostbddtest@gmail.com");
-		loginPage.inputPassword("ghostadmin");
-		loginPage.submit();
+		loginService.loadPage();
+		loginService.login("ghostbddtest@gmail.com", "ghostadmin");
 	}
 
 	@When("^user click new post link on navigation menu$")

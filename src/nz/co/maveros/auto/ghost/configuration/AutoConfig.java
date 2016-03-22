@@ -43,4 +43,8 @@ public class AutoConfig {
 	public String getAppHostname() {
 		return config.getString("app.ghost.hostname");
 	}
+	
+	public long getElementWaitFor() {
+		return config.getLong("auto.driver.element.waitfor");
+	}
 }

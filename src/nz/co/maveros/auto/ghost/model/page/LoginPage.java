@@ -1,53 +1,24 @@
 package nz.co.maveros.auto.ghost.model.page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import nz.co.maveros.auto.ghost.fixture.GhostPrimaryObjectFixture;
-
 public class LoginPage extends AbstractPage {
 
-	private WebElement email;
+	private String email;
 
-	private WebElement password;
+	private String password;
 
-	private WebElement submitButton;
+	public final static String LOGIN_URL = "/login";
 
-	private final static String LOGIN_URL = "/login";
-
-	public LoginPage(WebDriver driver) {
-		super(driver, LOGIN_URL);
-
-		load();
-		GhostPrimaryObjectFixture.checkPageIsReady();
-
-		this.email = driver.findElement(By.xpath("//input[contains(@type,'email')]"));
-		this.password = driver.findElement(By.xpath("//input[contains(@type,'password')]"));
-		this.submitButton = driver.findElement(By.xpath("//button[contains(@class,'login btn')]"));
+	public LoginPage(String email, String password) {
+		this.email = email;
+		this.password = password;
 	}
 
-	public WebElement getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public WebElement getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public WebElement getSubmitButton() {
-		return submitButton;
-	}
-
-	public void submit() {
-		submitButton.click();
-	}
-
-	public void inputEmail(String emailValue) {
-		email.sendKeys(emailValue);
-	}
-
-	public void inputPassword(String passwordValue) {
-		password.sendKeys(passwordValue);
-	}
 }
