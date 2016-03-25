@@ -2,6 +2,7 @@ package nz.co.maveros.auto.ghost.selenium;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByTagName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -42,6 +43,11 @@ public class Driver {
 	public static WebElement findElementById(String id) {
 		return (new WebDriverWait(get(), config.getElementWaitFor()))
 		  .until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
+	}
+	
+	public static WebElement findElementByTagName(String tagName) {
+		return (new WebDriverWait(get(), config.getElementWaitFor()))
+				  .until(ExpectedConditions.presenceOfElementLocated(ByTagName.tagName(tagName)));
 	}
 	
 	private static WebDriver getDriverByType() {

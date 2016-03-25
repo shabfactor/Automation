@@ -4,12 +4,15 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import nz.co.maveros.auto.ghost.fixture.GhostPrimaryObjectFixture;
+import nz.co.maveros.auto.ghost.service.EditorPageService;
+import nz.co.maveros.auto.ghost.service.EditorPageServiceImpl;
 import nz.co.maveros.auto.ghost.service.LoginService;
 import nz.co.maveros.auto.ghost.service.LoginServiceImpl;
 
 public class CreatePostFeature extends GhostPrimaryObjectFixture {
-	
+
 	private LoginService loginService = new LoginServiceImpl();
+	private EditorPageService editorPageService = new EditorPageServiceImpl();
 
 	@Given("^valid user logged in$")
 	public void validUserLoggedIn() throws Throwable {
@@ -19,14 +22,13 @@ public class CreatePostFeature extends GhostPrimaryObjectFixture {
 
 	@When("^user click new post link on navigation menu$")
 	public void userClickNewPostLinkOnNavigationMenu() throws Throwable {
-		// code define in the GPOF
-		System.out.println("user click new post link on navigation menu");
+		editorPageService.createNewPostUseMenu();
 	}
 
 	@When("^type title and content inside editor$")
 	public void typeTitleAndContentInsideEditor() throws Throwable {
-		// code define in the GPOF
-		System.out.println("type title and content inside editor");
+		editorPageService.userInputTitle();
+		editorPageService.userInputBody();
 	}
 
 	@When("^click save draft button$")
