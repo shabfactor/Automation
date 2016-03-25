@@ -26,23 +26,37 @@ public class Driver {
 		return wb;
 	}
 	
+	/**
+	 * Load ghost application url (ghost domain + page url).
+	 * @param url
+	 */
+	public static void loadAppUrl(String url) {
+		get().navigate().to(config.getAppHostname() + url);
+	}
+	
+	/**
+	 * Generic load any url.
+	 * @param url
+	 */
 	public static void load(String url) {
 		get().navigate().to(url);
 	}
 	
 	public static WebElement findElementByXpath(String xpath) {
-		return (new WebDriverWait(get(), config.getElementWaitFor()))
-		  .until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		return waitFor(By.xpath(xpath));
 	}
 	
 	public static WebElement findElementByCssSelector(String cssSelector) {
-		return (new WebDriverWait(get(), config.getElementWaitFor()))
-		  .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(cssSelector)));
+		return waitFor(By.cssSelector(cssSelector));
 	}
 	
 	public static WebElement findElementById(String id) {
+		return waitFor(By.id(id));
+	}
+	
+	private static WebElement waitFor(By by) {
 		return (new WebDriverWait(get(), config.getElementWaitFor()))
-		  .until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
+				.until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 	
 	public static WebElement findElementByTagName(String tagName) {
