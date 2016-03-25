@@ -1,18 +1,14 @@
 package nz.co.maveros.auto.ghost.service;
 
 import org.openqa.selenium.WebElement;
-
-import nz.co.maveros.auto.ghost.configuration.AutoConfig;
 import nz.co.maveros.auto.ghost.model.page.LoginPage;
 import nz.co.maveros.auto.ghost.selenium.Driver;
 
 public class LoginServiceImpl implements LoginService {
 	
-	private AutoConfig config = AutoConfig.getInstance();
-
 	@Override
 	public void loadPage() {
-		Driver.load(config.getAppHostname() + LoginPage.LOGIN_URL);
+		Driver.loadAppUrl(LoginPage.LOGIN_URL);
 	}
 
 	@Override
