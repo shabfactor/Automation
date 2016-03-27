@@ -64,6 +64,11 @@ public class Driver {
 				  .until(ExpectedConditions.presenceOfElementLocated(ByTagName.tagName(tagName)));
 	}
 	
+	public static WebElement findElementClickable(By by) {
+		return (new WebDriverWait(get(), config.getElementWaitFor()))
+	.until(ExpectedConditions.elementToBeClickable((by)));
+	}
+	
 	private static WebDriver getDriverByType() {
 		
 		DriverType driverType = config.getDriverType();
