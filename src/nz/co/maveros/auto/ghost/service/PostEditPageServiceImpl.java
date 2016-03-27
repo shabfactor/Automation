@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import static org.junit.Assert.*;
 
-import junit.framework.Assert;
 import nz.co.maveros.auto.ghost.model.page.PostEditPage;
 import nz.co.maveros.auto.ghost.selenium.Driver;
 
@@ -14,14 +14,13 @@ public class PostEditPageServiceImpl implements PostEditPageService {
 	private PostEditPage editorPage = new PostEditPage(UUID.randomUUID().toString(), UUID.randomUUID().toString());
 
 	public void createNewPostUseMenu() {
-		WebElement newPostLink = Driver
-				.findElementByXpath("//a[contains(@class, 'ember-view') and contains(@class, 'gh-nav-main-editor')]");
+		WebElement newPostLink = Driver.findElementPresence(By.xpath("//a[contains(@class, 'ember-view') and contains(@class, 'gh-nav-main-editor')]"));
 		newPostLink.click();
 	}
 
 	public void userInputTitleAndBody() {
-		WebElement title = Driver.findElementByCssSelector("#entry-title");
-		WebElement body = Driver.findElementByTagName("textarea");
+		WebElement title = Driver.findElementPresence(By.cssSelector("#entry-title"));
+		WebElement body = Driver.findElementPresence(By.tagName("textarea"));
 		title.sendKeys(editorPage.getTitle());
 		body.sendKeys(editorPage.getBody());
 	}
@@ -33,10 +32,10 @@ public class PostEditPageServiceImpl implements PostEditPageService {
 	}
 
 	public void checkNewPostDraftCreated() {
-		WebElement contentNavigationLink = Driver.findElementByCssSelector("a.ember-view.gh-nav-main-content");
+		WebElement contentNavigationLink = Driver.findElementPresence(By.cssSelector("a.ember-view.gh-nav-main-content"));
 		contentNavigationLink.click();
-		String testTitle = Driver.findElementByCssSelector("h3.entry-title").getText();
-		Assert.assertTrue(testTitle.equals(editorPage.getTitle()));
+		String testTitle = Driver.findElementPresence(By.cssSelector("h3.entry-title")).getText();
+		assertTrue(testTitle.equals(editorPage.getTitle()));
 		Driver.get().close();
 	}
 

@@ -8,7 +8,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		plugin = {"pretty", "html:target/report.html"},
-		features = {"src/nz/co/maveros/auto/ghost/features"}
+		features = {"src/nz/co/maveros/auto/ghost/features"},
+		glue = "stepsdef"
 )
 
 public class CucumberRunner {
