@@ -18,7 +18,7 @@ public class Driver {
 	
 	private static AutoConfig config = AutoConfig.getInstance();
 	
-	public synchronized static WebDriver get() {
+	public synchronized static WebDriver getDriver() {
 		if (wb == null) {
 			wb = getDriverByType();
 		}
@@ -30,7 +30,7 @@ public class Driver {
 	 * @param url
 	 */
 	public static void loadAppUrl(String url) {
-		get().navigate().to(config.getAppHostname() + url);
+		getDriver().get(config.getAppHostname() + url);
 	}
 	
 	/**
@@ -38,15 +38,15 @@ public class Driver {
 	 * @param url
 	 */
 	public static void load(String url) {
-		get().navigate().to(url);
+		getDriver().get(url);
 	}
 	
 	public static WebElement findElementPresence(By by) {
-		return (new WebDriverWait(get(), config.getElementWaitFor())).until(ExpectedConditions.presenceOfElementLocated(by));
+		return (new WebDriverWait(getDriver(), config.getElementWaitFor())).until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 	
 	public static WebElement findElementClickable(By by) {
-		return (new WebDriverWait(get(), config.getElementWaitFor())).until(ExpectedConditions.elementToBeClickable((by)));
+		return (new WebDriverWait(getDriver(), config.getElementWaitFor())).until(ExpectedConditions.elementToBeClickable((by)));
 	}
 	
 	private static WebDriver getDriverByType() {

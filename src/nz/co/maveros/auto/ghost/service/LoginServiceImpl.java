@@ -24,4 +24,10 @@ public class LoginServiceImpl implements LoginService {
 		return loginPage;
 	}
 
+	@Override
+	public void logout() {
+		Driver.loadAppUrl("/ghost/signout/");
+		
+	}
+
 }

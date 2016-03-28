@@ -1,16 +1,15 @@
-package nz.co.maveros.auto.ghost.stepsdef;
+package nz.co.maveros.auto.ghost.stepsdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import nz.co.maveros.auto.ghost.configuration.AutoConfig;
-import nz.co.maveros.auto.ghost.fixture.GhostPrimaryObjectFixture;
 import nz.co.maveros.auto.ghost.service.PostEditPageService;
 import nz.co.maveros.auto.ghost.service.PostEditPageServiceImpl;
 import nz.co.maveros.auto.ghost.service.LoginService;
 import nz.co.maveros.auto.ghost.service.LoginServiceImpl;
 
-public class CreatePostFeature extends GhostPrimaryObjectFixture {
+public class CreatePostFeature {
 
 	private LoginService loginService = new LoginServiceImpl();
 	private PostEditPageService postEditPageService = new PostEditPageServiceImpl();
@@ -27,6 +26,11 @@ public class CreatePostFeature extends GhostPrimaryObjectFixture {
 		postEditPageService.createNewPostUseMenu();
 	}
 
+	@When("^user click new post button$")
+	public void userClickNewPostButton() throws Throwable {
+		postEditPageService.createNewPostUseButton();
+	}
+
 	@When("^type title and content inside editor$")
 	public void typeTitleAndContentInsideEditor() throws Throwable {
 		postEditPageService.userInputTitleAndBody();
@@ -40,8 +44,7 @@ public class CreatePostFeature extends GhostPrimaryObjectFixture {
 	@Then("^a new draft post is created$")
 	public void NewDraftPostIsCreated() throws Throwable {
 		postEditPageService.checkNewPostDraftCreated();
+		loginService.logout();
 	}
-
-
 
 }

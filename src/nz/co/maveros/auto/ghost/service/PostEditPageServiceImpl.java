@@ -17,6 +17,10 @@ public class PostEditPageServiceImpl implements PostEditPageService {
 		WebElement newPostLink = Driver.findElementPresence(By.xpath("//a[contains(@class, 'ember-view') and contains(@class, 'gh-nav-main-editor')]"));
 		newPostLink.click();
 	}
+	
+	public void createNewPostUseButton() {
+		Driver.findElementPresence(By.cssSelector("a.btn.btn-green.ember-view")).click();
+	}
 
 	public void userInputTitleAndBody() {
 		WebElement title = Driver.findElementPresence(By.cssSelector("#entry-title"));
@@ -36,7 +40,7 @@ public class PostEditPageServiceImpl implements PostEditPageService {
 		contentNavigationLink.click();
 		String testTitle = Driver.findElementPresence(By.cssSelector("h3.entry-title")).getText();
 		assertTrue(testTitle.equals(editorPage.getTitle()));
-		Driver.get().close();
+		//Driver.getDriver().close();
 	}
 
 }
